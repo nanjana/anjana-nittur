@@ -87,6 +87,12 @@ body {
     position: relative;
     background-color: #ffffff;
     flex-wrap: wrap; /* This ensures the image and text stack on smaller screens */
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
 }
 
 /* Circular Image */
@@ -96,8 +102,8 @@ body {
 }
 
 .circle-image {
-    width: 300px; /* Reduce size for better responsiveness */
-    height: 300px;
+    width: 450px; /* Reduce size for better responsiveness */
+    height: 450px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #ffffff;
@@ -119,10 +125,11 @@ body {
 
 /* Buttons */
 .buttons {
-    flex-wrap: wrap; /* Ensure buttons wrap */
+    display: flex;
+    flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+    justify-content: center;
     gap: 10px; /* Add space between buttons */
     margin-top: 20px;
-    flex-direction: column;
 }
 
 .btn {
@@ -135,8 +142,8 @@ body {
     transition: background-color 0.3s ease;
     text-align: center;
     min-width: 150px;
-    flex: 1; /* Allow buttons to take up available space */
-    max-width: 250px; /* Optional: limit max width */
+    flex: 1;
+    max-width: 250px;
 }
 
 .btn:hover {
@@ -147,7 +154,8 @@ body {
 @media only screen and (max-width: 600px) {
     .hero-section {
         flex-direction: column; /* Stack image and text on small screens */
-        text-align: center; /* Center the content */
+        text-align: center;
+        padding: 20px;
     }
 
     .circle-image {
@@ -159,16 +167,17 @@ body {
         max-width: 100%;
         margin-top: 20px;
     }
-    
+
     .buttons {
-        gap: 45px; /* Stack buttons vertically on smaller screens */
+        gap: 15px; /* Maintain spacing between buttons */
+        flex-direction: column; /* Stack buttons vertically */
         align-items: center; /* Center align buttons */
-        flex-direction: column;
+        width: 100%;
     }
 
     .btn {
-        width: 100%; /* Make the buttons take full width */
-        max-width: 250px; /* Optional: Limit the maximum width */
+        width: 100%; /* Buttons take full width on mobile */
+        max-width: 250px;
     }
 }
 
