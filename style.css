@@ -560,3 +560,47 @@ p {
 .contact-icons-left i {
     margin-top: 30px; /* Adjust icon margin if needed */
 }
+
+/* Default Styles for Desktop */
+body {
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile Devices */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Tablets and Small Screens */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+}
