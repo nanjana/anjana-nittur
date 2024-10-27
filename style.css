@@ -102,8 +102,8 @@ body {
 }
 
 .circle-image {
-    width: 450px; /* Reduce size for better responsiveness */
-    height: 450px;
+    width: 300px; /* Reduce size for better responsiveness */
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #ffffff;
