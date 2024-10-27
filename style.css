@@ -1,0 +1,562 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    color: black;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 100;
+    color: #2b2b2b;
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    transition: 0.5s ease;
+    z-index: 100;
+}
+
+.menu-overlay ul {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(0, -50%);
+    list-style: none;
+    text-align: left;
+}
+
+.menu-overlay ul li {
+    margin: 20px 0;
+}
+
+.menu-overlay ul li a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.menu-overlay ul li a i {
+    margin-right: 10px;
+}
+
+.menu-overlay ul li a:hover {
+    color: #808080;
+}
+
+/* Close Menu Button */
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    z-index: 101;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* Circular Image */
+.image-container {
+    position: relative;
+    z-index: 1;
+}
+
+.circle-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 75%;
+    object-fit: cover;
+    border: 5px solid #ffffff;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Section */
+.content {
+    text-align: left;
+    z-index: 2;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+h1, h2 {
+    margin: 10px 0;
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+p {
+    margin: 20px 0;
+    color: #595959;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff0000;
+}
+
+/* Education and Skills Section */
+.education-skills-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #2b2b2b;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center; 
+}
+
+/* Education Section Styling */
+.education-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.education-card {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 700px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.education-card .year {
+    font-size: 18px;
+    color: #2b2b2b;
+}
+
+.education-card h3 {
+    font-size: 20px;
+    color: #2b2b2b;
+    margin: 10px 0;
+}
+
+.education-card p {
+    color: #595959;
+    font-size: 16px;
+}
+
+/* Skills Section Styling */
+.skills-container {
+    display: flex;
+    justify-content: center; /* Center the skill cards */
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping of skill cards */
+    padding: 20px;
+    max-width: 1200px; /* Set max-width to control the overall width */
+    margin: 0 auto; /* Center the entire section */
+}
+
+.skill-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px; /* Reduced padding to decrease height */
+    text-align: center;
+    width: 100px; /* You can adjust this width as needed */
+    height: 130px; /* Reduced height */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.skill-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Experience Section */
+.experience-section {
+    padding: 50px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+}
+
+.experience-card {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.timeline-item .experience-card span {
+    font-size: 14px;
+    color: #595959;
+    margin-top: 5px;
+}
+
+.timeline-item:nth-child(even) .experience-card {
+    margin-left: 40px;
+}
+
+.timeline-item:nth-child(odd) .experience-card {
+    margin-right: 40px;
+}
+
+/* Vertical line in the middle */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item::before {
+    content: ' ';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -12.5px;
+    background-color: #2b2b2b;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -12.5px;
+    right: auto;
+}
+
+/* Highlighted text link */
+.highlight-link {
+    background-color: white; /* Change background color to highlight */
+    padding: 2px 4px;
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    color: #2b2b2b; /* Text color */
+    border-radius: 4px;
+}
+
+.highlight-link:hover {
+    background-color: darkblue; /* Hover effect */
+    color: white;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.project-card {
+    background-color: #5b5f69;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.project-play-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 25%;
+    font-size: 10px;
+}
+
+.view-all-container {
+    margin-top: 20px;
+}
+
+.view-all-btn {
+    background-color: #000;
+    color: #ffffff;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #ff0000;
+}
+
+/* Publication Section */
+.publication-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.publication-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.publication-card {
+    background-color: #5b5f69;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.publication-card img {
+    width: 50%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.publication-card h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.publication-card p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.publication-link {
+    display: inline-block;
+    background-color: #000;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.publication-link i {
+    margin-right: 8px;
+}
+
+.publication-link:hover {
+    background-color: #ff0000;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 1200px; /* You can increase this value for more width */
+}
+
+.contact-form {
+    width: 50%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ff0000;
+}
+
+/* Contact Details */
+.contact-details {
+    width: 35%; /* Adjust this width to move the section to the right */
+    padding: 30px;
+    text-align: left;
+}
+
+.contact-details p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-icons a {
+    color: #2b2b2b;
+    font-size: 30px;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.contact-icons a:hover {
+    color: #ff0000;
+}
+
+
+.contact-info ul li i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: #2b2b2b;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff0000;
+}
+
+.contact-icons-left {
+    text-align: center;
+    margin-top: 10px; /* Adjust margin for spacing */
+}
+
+.contact-icons-left a {
+    color: #2b2b2b;
+    font-size: 30px;
+    margin: 0 10px; /* Adds space between the icons */
+    transition: color 0.3s;
+}
+
+.contact-icons-left a:hover {
+    color: #ff0000;
+}
+
+.contact-icons-left i {
+    margin-top: 30px; /* Adjust icon margin if needed */
+}
