@@ -86,6 +86,7 @@ body {
     padding: 0 50px;
     position: relative;
     background-color: #ffffff;
+    flex-wrap: wrap; /* This ensures the image and text stack on smaller screens */
 }
 
 /* Circular Image */
@@ -95,9 +96,9 @@ body {
 }
 
 .circle-image {
-    width: 500px;
-    height: 500px;
-    border-radius: 75%;
+    width: 300px; /* Reduce size for better responsiveness */
+    height: 300px;
+    border-radius: 50%;
     object-fit: cover;
     border: 5px solid #ffffff;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -113,37 +114,62 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     font-size: 18px;
-}
-
-h1, h2 {
-    margin: 10px 0;
-    font-weight: 600;
-    color: #2b2b2b;
-}
-
-p {
-    margin: 20px 0;
-    color: #595959;
-    text-align: justify;
-}
-
-.buttons {
     margin-top: 20px;
+}
+
+/* Buttons */
+.buttons {
+    flex-wrap: wrap; /* Ensure buttons wrap */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px;
+    flex-direction: column;
 }
 
 .btn {
     background-color: #2b2b2b;
     color: white;
-    padding: 12px 25px;
+    padding: 12px 20px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
-    margin-right: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    min-width: 150px;
+    flex: 1; /* Allow buttons to take up available space */
+    max-width: 250px; /* Optional: limit max width */
 }
 
 .btn:hover {
     background-color: #ff0000;
+}
+
+/* Responsive for smaller screens */
+@media only screen and (max-width: 600px) {
+    .hero-section {
+        flex-direction: column; /* Stack image and text on small screens */
+        text-align: center; /* Center the content */
+    }
+
+    .circle-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .content {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    
+    .buttons {
+        gap: 45px; /* Stack buttons vertically on smaller screens */
+        align-items: center; /* Center align buttons */
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%; /* Make the buttons take full width */
+        max-width: 250px; /* Optional: Limit the maximum width */
+    }
 }
 
 /* Education and Skills Section */
@@ -337,8 +363,10 @@ p {
 .projects-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    flex-wrap: wrap; /* Ensure projects wrap */
+    gap: 30px; /* Space between cards */
     margin-bottom: 50px;
+    padding: 0 10px; /* Add some padding for better layout */
 }
 
 .project-card {
@@ -346,9 +374,10 @@ p {
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 300px;
+    width: calc(33.33% - 30px); /* Take 1/3 of the container’s width, minus the gap */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     position: relative;
+    min-width: 250px; /* Ensure a minimum width */
 }
 
 .project-card img {
@@ -461,59 +490,45 @@ p {
 
 .contact-container {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 0 auto;
-    max-width: 1200px; /* You can increase this value for more width */
+    max-width: 400px; /* Adjusted for desktop */
 }
 
-.contact-form {
-    width: 50%;
+.contact-details {
+    width: 100%;
+    max-width: 400px; /* Maximum width for larger screens */
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.contact-form button {
-    background-color: #2b2b2b;
-    color: white;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.contact-form button:hover {
-    background-color: #ff0000;
-}
-
-/* Contact Details */
-.contact-details {
-    width: 35%; /* Adjust this width to move the section to the right */
-    padding: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    margin: 0 auto; /* Center the box */
 }
 
 .contact-details p {
     font-size: 18px;
     margin-bottom: 20px;
+    word-break: break-word; /* Wrap long text */
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .contact-icons a {
-    color: #2b2b2b;
     font-size: 30px;
-    margin-right: 20px;
+    margin: 0 15px;
+    color: #2b2b2b;
     transition: color 0.3s;
 }
 
@@ -521,136 +536,77 @@ p {
     color: #ff0000;
 }
 
-
-.contact-info ul li i {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.social-icons {
-    margin-top: 20px;
-}
-
-.social-icons a {
-    font-size: 24px;
-    color: #2b2b2b;
-    margin-right: 15px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #ff0000;
-}
-
-.contact-icons-left {
-    text-align: center;
-    margin-top: 10px; /* Adjust margin for spacing */
-}
-
-.contact-icons-left a {
-    color: #2b2b2b;
-    font-size: 30px;
-    margin: 0 10px; /* Adds space between the icons */
-    transition: color 0.3s;
-}
-
-.contact-icons-left a:hover {
-    color: #ff0000;
-}
-
-.contact-icons-left i {
-    margin-top: 30px; /* Adjust icon margin if needed */
-}
-
-/* Default Styles for Desktop */
-body {
-    font-size: 18px;
-}
-
-.container {
-    display: flex;
-    justify-content: space-around;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Mobile Devices */
+/* Mobile Specific Adjustments */
 @media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .container {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    img {
-        width: 100%;
-    }
-}
-
-/* Tablets and Small Screens */
-/* Make sure this section adapts to mobile */
-@media screen and (max-width: 768px) {
-    .education-skills-section, 
-    .hero-section, 
-    .experience-section {
-        flex-direction: column;
+    .contact-details {
+        width: 90%; /* Take 90% of the screen width */
+        padding: 20px;
+        margin: 0 auto;
         text-align: center;
     }
-
-    .hero-section {
-        height: auto;
-        padding: 20px;
-    }
-
-    .circle-image {
-        width: 200px;
-        height: 200px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        margin-bottom: 10px;
-    }
 }
 
-.contact-details {
-    width: 35%;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center text horizontally */
-    margin: 0 auto; /* Center the box itself */
+/* Projects Section */
+.projects-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.projects-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Align the content in the middle */
-    border: 2px solid #000; /* The border around the box */
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Wrap the project cards on smaller screens */
 }
 
-.typing-effect {
-    display: inline-block;
-    overflow: hidden; /* Hides the text until it is revealed */
-    white-space: nowrap; /* Prevents the text from wrapping */
-    border-right: 3px solid; /* Creates a cursor effect */
-    font-family: 'Poppins', sans-serif; /* Use the same font for consistency */
-    font-weight: 600; /* Adjust font size as needed */
-    animation: typing 3.5s steps(30, end), blink .75s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  @keyframes blink {
-    from, to { border-color: transparent; }
-    50% { border-color: black; }
-  }
-  
+.project-card {
+    background-color: #5b5f69;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.project-play-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 25%;
+    font-size: 10px;
+}
+
+/* Mobile Specific Adjustments */
+@media only screen and (max-width: 600px) {
+    .projects-container {
+        flex-direction: column; /* Stack project cards vertically */
+    }
+
+    .project-card {
+        width: 90%; /* Take most of the screen width */
+        margin-bottom: 20px;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto; /* Ensure images resize correctly */
+    }
+}
