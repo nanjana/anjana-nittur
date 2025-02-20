@@ -77,23 +77,153 @@ body {
     z-index: 101;
 }
 
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-right: 3px solid white; /* Simulates typing cursor */
+    width: 0;
+    animation: typing 4s steps(50, end) forwards, blink 0.8s infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Cursor blinking effect */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.hero-header {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 0; /* Reduce padding */
+    max-width: 90%;
+    /*color: white; */
+}
+
+/* Style for Social Links */
+.key-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Increase spacing */
+    margin-top: 10px;
+}
+
+.key-links a {
+   /* color: white;  /* Change from default blue */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.1);  /* Subtle background */
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.key-links a:hover {
+    background-color: rgba(255, 255, 255, 0.3);  /* Highlight effect */
+    color: #ffcc00;
+}
+
+.key-links i {
+    font-size: 1.2rem;
+}
+
+
+/* One-Liner Role Text Animation */
+.dynamic-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #2b2b2b;
+    margin-bottom: 10px;
+    height: 30px; /* Prevent layout shift */
+    overflow: hidden;
+    position: relative;
+}
+
+.role-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: swapRoles 24s infinite;
+}
+
+/* Staggered animation with proper delays */
+.role-text:nth-child(1) { animation-delay: 0s; }
+.role-text:nth-child(2) { animation-delay: 6s; }
+.role-text:nth-child(3) { animation-delay: 12s; }
+.role-text:nth-child(4) { animation-delay: 18s; }
+
+/* Keyframes to prevent overlap */
+@keyframes swapRoles {
+    0% { opacity: 0; transform: translateY(20px); }
+    5% { opacity: 1; transform: translateY(0); }  /* Gradual fade-in */
+    20% { opacity: 1; transform: translateY(0); } /* Stay visible */
+    25% { opacity: 0; transform: translateY(-20px); } /* Fade out */
+    100% { opacity: 0; }
+}
+
+
+/* Justify About Me Text */
+.justified-text {
+    text-align: justify;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+
 /* Hero Section */
 .hero-section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0 50px;
-    position: relative;
+    padding: 20px;
     background-color: #ffffff;
-    flex-wrap: wrap; /* This ensures the image and text stack on smaller screens */
-    background-image: url('image.jpg');
+    flex-wrap: wrap;
+    background-image: linear-gradient(rgba(30, 58, 138, 0.6), rgba(37, 99, 235, 0.6)), url('image.jpg'); /* Gradient overlay */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
-}
+} 
+
+/* Remove excess spacing in Hero Section 
+.hero-header {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 5px 10px; /* Reduced padding */
+   /* max-width: 80%; /* Limit width */ 
+/* s} */ 
+
+/* Hero Section Fix: Reduce Extra Gap & Ensure Proper Alignment 
+.hero-section {
+    height: 120vh; /* Reduce height to fit all content on one page 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    background-image: linear-gradient(rgba(30, 58, 138, 0.6), rgba(37, 99, 235, 0.6)), url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}  */
 
 /* Circular Image */
 .image-container {
@@ -181,11 +311,97 @@ body {
     }
 }
 
-/* Education and Skills Section */
-.education-skills-section {
+/* Education Section */
+.education-section {
+    padding: 50px 0;
+    background-color: white;
+    text-align: center;
+    min-height: 100vh;  /* Ensure full screen height */
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center; */
+    align-items: center;
+}
+
+/* Education Logos */
+.education-bu-logo {
+    width: 300px;  /* Adjust size as needed */
+    height: 150px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Fix for KLE Alignment */
+.education-bvb-logo {
+    width: 260px; 
+    height: auto; 
+    margin: 0 auto 20px auto; /* Center properly */
+    display: block;
+    padding-top: 30px; /* Increase spacing to match BU text alignment */
+}
+
+
+/* Skills Section */
+.skills-section {
     padding: 50px 0;
     background-color: #f9f9f9;
     text-align: center;
+    min-height: 100vh;  /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center; */
+    align-items: center;
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Skill Cards */
+.skill-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 120px;
+    height: 140px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.skill-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+/* Hover Effect */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Education and Skills Section */
+.education-skills-section {
+    padding: 50px 0;
+    background-color: white;
+    text-align: center;
+    margin-top: -50px; /* Adjust if needed */
+    min-height: 100vh;
 }
 
 .section-title {
@@ -200,18 +416,27 @@ body {
 .education-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 50px; /* Increase spacing if needed */
+    margin: 0 auto;
+    width: 80%; /* Prevent it from stretching too much */
+    flex-wrap: wrap; /* Ensure it stacks on smaller screens */
 }
 
 .education-card {
     background-color: #ddd;
-    padding: 20px;
+    padding: 50px;
     border-radius: 15px;
     text-align: center;
     width: 700px;
+    height: 300px; /* Ensure both cards have equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .education-card .year {
     font-size: 18px;
@@ -229,47 +454,11 @@ body {
     font-size: 16px;
 }
 
-/* Skills Section Styling */
-.skills-container {
-    display: flex;
-    justify-content: center; /* Center the skill cards */
-    gap: 20px;
-    flex-wrap: wrap; /* Allow wrapping of skill cards */
-    padding: 20px;
-    max-width: 1200px; /* Set max-width to control the overall width */
-    margin: 0 auto; /* Center the entire section */
-}
 
-.skill-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px; /* Reduced padding to decrease height */
-    text-align: center;
-    width: 100px; /* You can adjust this width as needed */
-    height: 130px; /* Reduced height */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.skill-card img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-
-.skill-card p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #2b2b2b;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-}
 
 /* Experience Section */
 .experience-section {
+    min-height: 100vh;
     padding: 50px 0;
     background-color: #ffffff;
     text-align: center;
@@ -364,7 +553,8 @@ body {
 
 /* Projects Section */
 .projects-section {
-    padding: 50px 0;
+    min-height: 100vh;
+    padding: 0 50px;
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -372,11 +562,13 @@ body {
 .projects-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Ensure projects wrap */
-    gap: 30px; /* Space between cards */
+    align-items: stretch; /* Ensures all cards take equal height */
+    flex-wrap: wrap;
+    gap: 30px;
     margin-bottom: 50px;
-    padding: 0 10px; /* Add some padding for better layout */
+    padding: 0 10px;
 }
+
 
 .project-card {
     background-color: #5b5f69;
@@ -387,13 +579,21 @@ body {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     position: relative;
     min-width: 250px; /* Ensure a minimum width */
+    height: 250px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 .project-card img {
     width: 100%;
+    height: 140px; /* Set a fixed height */
+    object-fit: cover; /* Ensures uniform image size without stretching */
     border-radius: 10px;
     margin-bottom: 20px;
 }
+
 
 .project-card h3 {
     font-size: 20px;
@@ -432,6 +632,7 @@ body {
 
 /* Publication Section */
 .publication-section {
+    min-height: 100vh;
     padding: 50px 0;
     background-color: #f9f9f9;
     text-align: center;
@@ -492,6 +693,7 @@ body {
 
 /* Contact Section */
 .contact-section {
+    min-height: 100vh;
     padding: 50px 0;
     background-color: #f9f9f9;
     text-align: center;
